@@ -1,0 +1,257 @@
+﻿/* ==================================================== */
+/* =============== VERSÃO 2 (NATUREZA) ================ */
+/* ==================================================== */
+
+/* Botão de Alternância de Versão */
+.version-toggle-btn {
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 6px 14px;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.7rem;
+    font-family: 'Lato', sans-serif;
+    cursor: pointer;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.version-toggle-btn:hover {
+    color: rgba(255, 255, 255, 0.8);
+    border-color: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* Wrapper Geral da V2 */
+.v2-wrapper {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 500;
+    transition: opacity 0.8s ease, visibility 0.8s;
+}
+.v2-wrapper.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* Tela Inicial Simples V2 */
+.v2-start-screen {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: #f7f9f5;
+    background-image: linear-gradient(120deg, #fdfdfc 0%, #edf1ea 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 30px;
+    z-index: 510;
+    transition: opacity 1s ease, transform 1s ease;
+}
+.v2-start-screen.hidden {
+    opacity: 0;
+    transform: scale(1.05);
+    pointer-events: none;
+}
+.v2-intro-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: #4a5d45;
+    margin-bottom: 40px;
+    line-height: 1.4;
+    font-style: italic;
+    max-width: 320px;
+}
+.v2-open-btn {
+    padding: 14px 35px;
+    background: #6a8262;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(106, 130, 98, 0.3);
+    transition: all 0.3s ease;
+}
+.v2-open-btn:hover {
+    background: #566b4f;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(106, 130, 98, 0.4);
+}
+
+/* Tela Principal V2 (Página Única de Rolagem) */
+.v2-main-page {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: #fdfdfc;
+    overflow-y: auto;
+    z-index: 520;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease, transform 1s ease;
+    /* Fundo com textura de folhas muito sutil */
+    background-image: radial-gradient(#e2e6df 1px, transparent 1px);
+    background-size: 30px 30px;
+}
+.v2-main-page.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.v2-content {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 60px 20px 80px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* Tipografia e Cores V2 */
+.v2-header { margin-bottom: 20px; }
+.v2-names {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    color: #4a5d45;
+    line-height: 1;
+    margin: 0;
+}
+.v2-names span {
+    font-family: 'Alex Brush', cursive;
+    font-size: 2.5rem;
+    color: #bfa573;
+}
+.v2-date {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: 4px;
+    color: #778c70;
+    margin-top: 15px;
+    font-weight: 700;
+}
+
+.v2-divider {
+    margin: 30px 0;
+}
+
+.v2-verse p {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: #5c6e57;
+    line-height: 1.6;
+    max-width: 320px;
+    margin-bottom: 10px;
+}
+.v2-verse span {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.8rem;
+    color: #bfa573;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.v2-formal {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.85rem;
+    color: #6a8262;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    line-height: 1.6;
+    max-width: 300px;
+    margin: 10px 0 25px 0;
+}
+
+.v2-time-box .v2-time-date {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: #4a5d45;
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin: 0;
+}
+.v2-time-box .v2-time-hour {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.8rem;
+    color: #8fa688;
+    letter-spacing: 2px;
+    margin-top: 5px;
+}
+
+.v2-location h2, .v2-rsvp h2 {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.8rem;
+    color: #4a5d45;
+    margin-bottom: 15px;
+}
+.v2-venue {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #5c6e57;
+    margin-bottom: 5px;
+}
+.v2-address {
+    font-size: 0.9rem;
+    color: #778c70;
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+.v2-rsvp p {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.9rem;
+    color: #6a8262;
+    line-height: 1.5;
+    margin-bottom: 25px;
+    max-width: 300px;
+}
+
+/* Botões V2 */
+.v2-action-btn {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 30px;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    width: 100%;
+    max-width: 280px;
+    margin-bottom: 15px;
+}
+.v2-map-btn, .v2-rsvp-btn {
+    background: #6a8262;
+    color: #fff;
+    box-shadow: 0 6px 15px rgba(106, 130, 98, 0.25);
+}
+.v2-map-btn:hover, .v2-rsvp-btn:hover {
+    background: #566b4f;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(106, 130, 98, 0.35);
+}
+.v2-gift-btn {
+    background: transparent;
+    border: 1.5px solid #bfa573;
+    color: #bfa573;
+}
+.v2-gift-btn:hover {
+    background: rgba(191, 165, 115, 0.1);
+}
