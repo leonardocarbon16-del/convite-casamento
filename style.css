@@ -195,7 +195,7 @@ body {
     position: absolute;
     width: 95vw;
     max-width: 480px;
-    height: 92vh;
+    height: 90%;
     max-height: 900px;
     top: 50%;
     left: 50%;
@@ -713,7 +713,7 @@ h1.names-white span {
     
     width: calc(100% - 30px);
     margin: 15px auto;
-    height: calc(100dvh - 30px);
+    height: calc(100% - 30px);
     background: rgba(245, 245, 245, 0.75);
     box-shadow: 0 10px 30px rgba(0,0,0,0.2);
     position: relative;
@@ -919,4 +919,14 @@ h1.names-white span {
     cursor: pointer;
     z-index: 50;
     pointer-events: auto;
+}
+
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+.invite-wrapper {
+    height: 100%;
 }
