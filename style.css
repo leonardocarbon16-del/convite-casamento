@@ -50,7 +50,7 @@ body {
 .invite-wrapper {
     position: relative;
     width: 100vw;
-    max-width: 450px;
+    max-width: 520px;
     height: 100vh;
     perspective: 1200px;
     opacity: 1;
