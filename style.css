@@ -191,30 +191,28 @@ body {
 /* --- CartÃƒÂ£o Principal --- */
 .letter {
     position: absolute;
-    width: calc(100% - 20px);
-    height: calc(100% - 20px);
+    width: 95vw;
+    max-width: 480px;
+    height: 92vh;
+    max-height: 900px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: transparent; 
     z-index: 2;
-    transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
     display: flex;
     flex-direction: column;
 }
 
 /* 1. Desliza suavemente */
 .envelope.is-open .letter {
-    transform: translate(-50%, -80px) scale(0.98);
+    transform: translate(-50%, -80px) scale(0.96);
 }
 
 /* 2. Expande para leitura */
 .envelope.is-reading .letter {
-    width: 95vw;
-    max-width: 480px;
-    height: 92vh;
-    max-height: 900px;
-    transform: translate(-50%, calc(-50% + 21px));
+    transform: translate(-50%, calc(-50% + 21px)) scale(1);
     z-index: 10;
 }
 
