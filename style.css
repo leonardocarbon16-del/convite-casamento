@@ -10,7 +10,7 @@ body {
     background-size: 20px 20px;
     font-family: 'Lato', sans-serif;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     min-height: 100vh;
     min-height: 100%;
@@ -216,7 +216,7 @@ body {
 
 /* 2. Expande para leitura */
 .envelope.is-reading .letter {
-    transform: translate(-50%, -50%) scale(1);
+    transform: translate(-50%, calc(-50% + 20px)) scale(1);
     opacity: 1;
     pointer-events: auto;
     box-shadow: 0 30px 60px rgba(0,0,0,0.5);
@@ -583,12 +583,10 @@ h1.names-white span {
     color: #fff;
 }
 .date-white {
-    font-family: 'Lato', sans-serif;
-    font-size: 1.1rem;
-    color: #e2c08d;
-    letter-spacing: 4px;
-    margin-top: 15px;
-    text-transform: uppercase;
+    font-family: 'Cinzel', serif !important;
+    font-size: 1.3rem !important;
+    letter-spacing: 3px !important;
+    font-weight: 600 !important;
 }
 .scroll-hint.white-hint {
     margin-top: 30px;
@@ -707,7 +705,7 @@ h1.names-white span {
     content: '';
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.25);
     z-index: -1;
 }
 
@@ -716,7 +714,7 @@ h1.names-white span {
     width: calc(100% - 30px);
     margin: 15px auto;
     height: calc(100dvh - 30px);
-    background: rgba(245, 245, 245, 0.90);
+    background: rgba(245, 245, 245, 0.75);
     box-shadow: 0 10px 30px rgba(0,0,0,0.2);
     position: relative;
     display: flex;
@@ -765,7 +763,7 @@ h1.names-white span {
 .date-box-v2 { display: flex; flex-direction: column; align-items: center; margin: 5px 0; }
 .date-row-v2 { display: flex; align-items: center; gap: 15px; font-family: 'Playfair Display', serif; font-size: 2.4rem; color: #5b623e; line-height: 1; }
 .date-row-v2 span.divider-v2 { font-size: 2.5rem; font-weight: 300; opacity: 0.5; }
-.year-txt-v2 { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: #5b623e; letter-spacing: 5px; margin-top: 8px; }
+.year-txt-v2 { font-family: 'Cinzel', serif; font-size: 1.2rem; color: #5b623e; letter-spacing: 5px; margin-top: 8px; }
 
 .location-txt-v2 { font-family: 'Playfair Display', serif; font-size: 1rem; color: #5b623e; line-height: 1.4; margin: 15px 0; }
 .btn-hint-v2 { font-family: 'Playfair Display', serif; font-size: 1rem; color: #5b623e; margin-bottom: 12px; letter-spacing: 1px; }
@@ -818,3 +816,107 @@ h1.names-white span {
 
 
 
+
+/* SVG Action Buttons */
+.action-btn { display: flex; align-items: center; justify-content: center; gap: 10px; }
+.action-btn svg { width: 18px; height: 18px; stroke: #e2c08d; transition: stroke 0.3s ease; }
+.action-btn:hover svg { stroke: #151515; }
+
+.names-cover-v1 {
+    font-family: 'Alex Brush', cursive;
+    font-size: 4.8rem;
+    line-height: 0.8;
+    color: #fff;
+    margin: 5px 0 20px 0;
+    font-weight: 400;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+.names-cover-v1 .name-1 { align-self: flex-start; padding-left: 5%; }
+.names-cover-v1 .name-2 { align-self: flex-end; padding-right: 5%; display: flex; align-items: center; margin-top: -10px; }
+.names-cover-v1 .amp { font-family: 'Alex Brush', cursive; font-size: 2.8rem; font-weight: 300; margin-right: 15px; color: #e2c08d; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
+
+/* ------------------------------------- */
+/* OVERRIDES DEFINITIVOS DA VERSÃO FINAL */
+/* ------------------------------------- */
+
+/* 1. Version Switch translúcido e sem quebra */
+.version-switch {
+    background: rgba(0,0,0,0.15) !important;
+    border: 1px solid rgba(226,192,141,0.25) !important;
+    padding: 3px !important;
+    white-space: nowrap !important;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+.v-option {
+    font-size: 0.75rem !important;
+    color: rgba(255,255,255,0.6) !important;
+}
+
+/* 2. Page Cover Layout */
+.page-cover {
+    justify-content: flex-end !important;
+    padding-bottom: 35px !important;
+}
+.countdown-minimal {
+    position: absolute !important;
+    top: 50px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+}
+
+/* 3. V2 Transparent overlay & Container */
+.v2-bg::after {
+    background: rgba(255, 255, 255, 0.25) !important;
+}
+.v2-container-inner {
+    width: calc(100% - 16px) !important;
+    height: calc(100% - 16px) !important;
+    margin: 8px auto !important;
+}
+
+/* 4. Dates using Cinzel for uniformity */
+.date-white {
+    font-family: 'Cinzel', serif !important;
+    font-size: 1.3rem !important;
+    letter-spacing: 3px !important;
+    font-weight: 600 !important;
+}
+.date-large {
+    justify-content: center !important;
+    font-family: 'Cinzel', serif !important;
+}
+.year-large {
+    font-family: 'Cinzel', serif !important;
+}
+.date-row-v2 { 
+    font-family: 'Cinzel', serif !important;
+}
+.year-txt-v2 { 
+    font-family: 'Cinzel', serif !important;
+}
+.countdown-minimal .time-box span {
+    font-family: 'Cinzel', serif !important;
+}
+
+
+.date-white {
+    color: #e2c08d !important;
+    text-transform: uppercase !important;
+    margin-top: 10px !important;
+}
+.address-v2 {
+    font-size: 0.8rem !important;
+    margin-bottom: 20px !important;
+}
+.btn-hint-v2 {
+    font-size: 0.85rem !important;
+}
+.scroll-hint {
+    cursor: pointer;
+    z-index: 50;
+    pointer-events: auto;
+}
