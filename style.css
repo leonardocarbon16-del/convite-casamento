@@ -424,8 +424,8 @@ body {
     justify-content: center;
     text-align: center;
     z-index: 10;
+    box-sizing: border-box;
     scroll-snap-align: start;
-    scroll-snap-stop: always;
 }
 
 /* SeÃƒÂ§ÃƒÂ£o 1 - Capa Totalmente Transparente (Foto 100% NÃƒÂ­tida) */
