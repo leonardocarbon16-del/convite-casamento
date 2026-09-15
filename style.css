@@ -958,3 +958,184 @@ html, body {
     }
 }
 
+
+/* ------------------------------------- */
+/* V2 Customizations (New Reference)     */
+/* ------------------------------------- */
+
+/* V2 Background and Overflow */
+.v2-bg {
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    display: flex;
+    flex-direction: column;
+}
+.v2-bg::after {
+    background: rgba(255, 255, 255, 0.82) !important; /* Lighter overlay to soften background */
+}
+.v2-container-inner {
+    border: 1px solid rgba(91, 98, 62, 0.3) !important;
+    padding: 30px 20px !important;
+    height: max-content !important;
+    min-height: calc(100% - 16px) !important;
+    margin: 8px auto !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start !important;
+    gap: 15px !important;
+}
+
+/* Ornaments */
+.ornament {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 60%;
+    margin: 5px auto;
+}
+.ornament .line {
+    flex-grow: 1;
+    height: 1px;
+    background: #5b623e;
+    opacity: 0.3;
+}
+.ornament svg {
+    width: 20px;
+    height: 20px;
+    opacity: 0.7;
+}
+
+/* Verse */
+.verse-box-v2 {
+    text-align: center;
+    margin-bottom: 20px !important;
+    color: #5b623e;
+}
+.verse-box-v2 .verse-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    margin: 0 0 8px 0;
+}
+.verse-box-v2 .verse-ref {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 2.5px;
+    margin: 0;
+}
+
+/* Names */
+.names-v2 {
+    margin-top: 5px !important;
+    font-size: 4rem !important; /* Smaller names */
+}
+.names-v2 .amp {
+    font-size: 2.5rem !important;
+}
+
+/* Invite Text */
+.invite-txt {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.9rem;
+    color: #5b623e;
+    margin: 10px 0 15px 0;
+    line-height: 1.4;
+}
+
+/* Date Box */
+.date-row-v2 {
+    font-size: 2.2rem !important; /* Smaller dates */
+    font-family: 'Cinzel', serif !important;
+}
+.year-txt-v2 {
+    font-size: 1.1rem !important; /* Smaller year */
+    font-family: 'Cinzel', serif !important;
+    letter-spacing: 4px !important;
+    margin-bottom: 5px !important;
+}
+
+/* Location */
+.location-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    margin-top: 25px !important;
+    margin-bottom: 10px;
+}
+.location-wrapper .pin-icon {
+    width: 16px;
+    height: 16px;
+    opacity: 0.8;
+}
+.location-txt-v2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.85rem;
+    color: #5b623e;
+    line-height: 1.4;
+    text-align: center;
+}
+
+/* Hint with lines */
+.hint-with-lines {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 80%;
+    margin: 25px auto 10px auto;
+}
+.hint-with-lines .line {
+    flex-grow: 1;
+    height: 1px;
+    background: #5b623e;
+    opacity: 0.3;
+}
+.hint-with-lines .text {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    color: #5b623e;
+    letter-spacing: 2px;
+}
+
+/* Buttons */
+.btn-list-v2 {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 85%;
+    margin: 0 auto;
+}
+.btn-v2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    background: transparent;
+    border: 1px solid rgba(91, 98, 62, 0.4) !important;
+    color: #5b623e;
+    padding: 12px 20px !important;
+    border-radius: 30px;
+    font-family: 'Cinzel', serif !important;
+    font-size: 0.7rem !important;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.btn-v2-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.btn-v2-left svg {
+    width: 14px;
+    height: 14px;
+    stroke: #5b623e;
+}
+.btn-v2 .arrow-icon {
+    width: 14px;
+    height: 14px;
+    stroke: #5b623e;
+}

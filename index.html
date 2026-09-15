@@ -11,7 +11,7 @@
     <meta property="og:image" content="https://raw.githubusercontent.com/leonardocarbon16-del/convite-casamento/main/images/couple3.png">
     <meta property="og:url" content="https://convite-casamento-leochrs.vercel.app">
     <meta property="og:site_name" content="Mauro & Brenda">
-    <link rel="stylesheet" href="style.css?v=59">
+    <link rel="stylesheet" href="style.css?v=64">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&family=Alex+Brush&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -114,48 +114,83 @@
                     <div class="v2-bg"></div>
                     <div class="scroll-container">
                         <div class="v2-container-inner">
-                            <div class="verse-box">
-                                "Grandes coisas fez o Senhor por n&oacute;s, e por isso estamos alegres." - Salmos 126:3
+                            
+                            <!-- Ornaments and Verse -->
+                            <div class="ornament">
+                                <span class="line"></span>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="#5b623e" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c0-4.5-2-7-5-9 0 3 2 6 5 9z"/><path d="M12 22c0-4.5 2-7 5-9 0 3-2 6-5 9z"/><path d="M12 15c0-4-1.5-6-4-8 0 2.5 1.5 5 4 8z"/><path d="M12 15c0-4 1.5-6 4-8 0 2.5-1.5 5-4 8z"/><path d="M12 22v-7"/></svg>
+                                <span class="line"></span>
                             </div>
 
+                            <div class="verse-box-v2">
+                                <p class="verse-text">&ldquo;Grandes coisas fez o Senhor por n&oacute;s, e por isso estamos alegres.&rdquo;</p>
+                                <p class="verse-ref">SALMOS 126:3</p>
+                            </div>
+
+                            <!-- Names -->
                             <div class="names-v2">
                                 <span class="name-1">Mauro</span>
-                                <span class="name-2"><span class="amp">&</span>Brenda</span>
+                                <span class="name-2"><span class="amp">&amp;</span>Brenda</span>
+                            </div>
+                            
+                            <div class="ornament">
+                                <span class="line"></span>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="#5b623e" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c0-4.5-2-7-5-9 0 3 2 6 5 9z"/><path d="M12 22c0-4.5 2-7 5-9 0 3-2 6-5 9z"/><path d="M12 15c0-4-1.5-6-4-8 0 2.5 1.5 5 4 8z"/><path d="M12 15c0-4 1.5-6 4-8 0 2.5-1.5 5-4 8z"/><path d="M12 22v-7"/></svg>
+                                <span class="line"></span>
                             </div>
 
+                            <!-- Invite Text -->
                             <div class="invite-txt">
-                                Convidam para a celebra&ccedil;&atilde;o de seu casamento
+                                Convidam para a celebra&ccedil;&atilde;o de<br>seu casamento
                             </div>
 
+                            <!-- Date (Keeping Original Structure, styling CSS) -->
                             <div class="date-box-v2">
                                 <div class="date-row-v2">
                                     <span>14</span> <span class="divider-v2">|</span> <span>NOV</span> <span class="divider-v2">|</span> <span>16h</span>
                                 </div>
                                 <div class="year-txt-v2">2026</div>
                             </div>
-
-                            <div class="location-txt-v2">
-                                Fazenda das Flores,<br>
-                                Rod. Principal, km 42<br>
-                                Vale do Sol - SP
+                            
+                            <!-- Location -->
+                            <div class="location-wrapper">
+                                <svg class="pin-icon" viewBox="0 0 24 24" fill="none" stroke="#5b623e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                                <div class="location-txt-v2">
+                                    Fazenda das Flores,<br>
+                                    Rod. Principal, km 42<br>
+                                    Vale do Sol - SP
+                                </div>
                             </div>
 
-                            <div class="btn-hint-v2">
-                                TOQUE NOS BOT&Otilde;ES
+                            <!-- Hint -->
+                            <div class="hint-with-lines">
+                                <span class="line"></span>
+                                <span class="text">MAIS INFORMA&Ccedil;&Otilde;ES</span>
+                                <span class="line"></span>
                             </div>
 
+                            <!-- Buttons -->
                             <div class="btn-list-v2">
                                 <button class="btn-v2" onclick="window.open('https://maps.google.com/?q=Fazenda+das+Flores+Vale+do+Sol+SP', '_blank')">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                                    LOCAL DO EVENTO
+                                    <div class="btn-v2-left">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                                        LOCAL DO EVENTO
+                                    </div>
+                                    <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
                                 </button>
                                 <button class="btn-v2" onclick="alert('Abriria confirmacao')">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-                                    CONFIRMAR PRESEN&Ccedil;A
+                                    <div class="btn-v2-left">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                                        CONFIRMAR PRESEN&Ccedil;A
+                                    </div>
+                                    <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
                                 </button>
                                 <button class="btn-v2" onclick="alert('Abriria lista')">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 12 20 22 4 22 4 12"></polyline><rect x="2" y="7" width="20" height="5"></rect><line x1="12" y1="22" x2="12" y2="7"></line><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path></svg>
-                                    LISTA DE PRESENTES
+                                    <div class="btn-v2-left">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 12 20 22 4 22 4 12"></polyline><rect x="2" y="7" width="20" height="5"></rect><line x1="12" y1="22" x2="12" y2="7"></line><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path></svg>
+                                        LISTA DE PRESENTES
+                                    </div>
+                                    <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
                                 </button>
                             </div>
                             
@@ -181,9 +216,11 @@
         </div>
     </div>
 
-    <script src="script.js?v=59"></script>
+    <script src="script.js?v=64"></script>
 </body>
 </html>
+
+
 
 
 
