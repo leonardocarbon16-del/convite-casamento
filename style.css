@@ -1,4 +1,4 @@
-* {
+﻿* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -10,14 +10,14 @@ body {
     background-size: 20px 20px;
     font-family: 'Lato', sans-serif;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     min-height: 100vh;
-    min-height: 100dvh;
+    min-height: 100%;
     overflow: hidden;
 }
 
-/* AnimaÃƒÂ§ÃƒÂ£o Inicial de Entrada */
+/* AnimaÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â§ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£o Inicial de Entrada */
 .intro-overlay {
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
@@ -26,7 +26,7 @@ body {
     background-size: 20px 20px;
     z-index: 1000;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     transition: opacity 1s ease, visibility 1s;
 }
@@ -53,7 +53,7 @@ body {
     width: 100vw;
     max-width: 520px;
     height: 100vh;
-    height: 100dvh;
+    min-height: 100%;
     perspective: 1200px;
     opacity: 1;
     transform: scale(1);
@@ -123,7 +123,7 @@ body {
 }
 
 .envelope.is-open .envelope-flap {
-    transform: rotateX(180deg);
+    /* transform: rotateX(180deg); removed */
     z-index: 1;
     transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1), z-index 0s 0.3s;
 }
@@ -190,7 +190,7 @@ body {
     opacity: 0;
 }
 
-/* --- CartÃƒÂ£o Principal --- */
+/* --- CartÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£o Principal --- */
 .letter {
     position: absolute;
     width: 95vw;
@@ -202,20 +202,26 @@ body {
     transform: translate(-50%, -50%);
     background-color: transparent; 
     z-index: 2;
-    transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1.5s ease;
     display: flex;
     flex-direction: column;
 }
 
 /* 1. Desliza suavemente */
 .envelope.is-open .letter {
-    transform: translate(-50%, -80px) scale(0.96);
+    opacity: 0;
 }
 
 /* 2. Expande para leitura */
 .envelope.is-reading .letter {
-    transform: translate(-50%, calc(-50% + 21px)) scale(1);
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+    pointer-events: auto;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.5);
     z-index: 10;
+    transition: opacity 1.5s ease;
 }
 
 /* O envelope desliza para baixo e desaparece suavemente no modo leitura */
@@ -380,23 +386,20 @@ body {
     background: #e2c08d;
     height: 18px;
     border-radius: 10px;
-    border-color: #e2c08d;
-    box-shadow: 0 0 10px rgba(226, 192, 141, 0.6);
 }
 
-/* --- Container com Rolagem (Totalmente Transparente) --- */
 .scroll-container {
     position: relative;
     width: 100%;
     height: 100%;
     overflow-y: scroll;
+    
     overflow-x: hidden;
     scrollbar-width: none;
     -ms-overflow-style: none;
     z-index: 2;
     background: transparent;
     border: none;
-    scroll-snap-type: y mandatory;
     border-radius: 18px;
     opacity: 0;
     transition: opacity 0.6s ease 0.8s;
@@ -412,181 +415,199 @@ body {
     opacity: 1;
 }
 
-/* SeÃƒÂ§ÃƒÂµes Individuais (Independentes) */
-.stack-section {
+/* SeÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â§ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Âµes Individuais (Independentes) */
+/* --- Single Long Page Layout --- */
+.long-page-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.page-cover {
+    
     position: relative;
     width: 100%;
-    height: 100%;
-    padding: 55px 25px 35px 25px;
+    min-height: 100%; /* Adapts to scroll-container */
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    padding: 30px 20px 20px 20px;
+    box-sizing: border-box;
     text-align: center;
     z-index: 10;
-    box-sizing: border-box;
-    scroll-snap-align: start;
 }
 
-/* SeÃƒÂ§ÃƒÂ£o 1 - Capa Totalmente Transparente (Foto 100% NÃƒÂ­tida) */
-#section-1 {
-    background: transparent;
-    padding-top: 50px; 
-    justify-content: space-between;
-    box-shadow: none; 
-}
-
-/* --- PainÃƒÂ©is de Vidro Cristal TranslÃƒÂºcido --- */
-.glass-panel {
-    border-top: 1px solid rgba(255, 255, 255, 0.35);
-    box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.15);
-}
-
-/* SeÃƒÂ§ÃƒÂ£o 2 - VersÃƒÂ­culo e Convite Formal (TransparÃƒÂªncia Elegante) */
-#section-2.glass-panel {
-    background: rgba(14, 10, 8, 0.34);
-    backdrop-filter: blur(12px) saturate(135%);
-    -webkit-backdrop-filter: blur(12px) saturate(135%);
-}
-
-/* SeÃƒÂ§ÃƒÂ£o 3 - CerimÃƒÂ´nia & Mapa (Ainda Mais Transparente) */
-#section-3.glass-panel {
-    background: rgba(14, 10, 8, 0.25);
-    backdrop-filter: blur(9px) saturate(130%);
-    -webkit-backdrop-filter: blur(9px) saturate(130%);
-}
-
-/* SeÃƒÂ§ÃƒÂ£o 4 - ConfirmaÃƒÂ§ÃƒÂ£o & AlianÃƒÂ§as (MÃƒÂ¡xima TransparÃƒÂªncia) */
-#section-4.glass-panel {
-    background: rgba(14, 10, 8, 0.16);
-    backdrop-filter: blur(6px) saturate(125%);
-    -webkit-backdrop-filter: blur(6px) saturate(125%);
-    border-top: 1px solid rgba(255, 255, 255, 0.45);
-}
-
-/* --- EstilizaÃƒÂ§ÃƒÂ£o da SeÃƒÂ§ÃƒÂ£o 2 (VersÃƒÂ­culo & BÃƒÂªnÃƒÂ§ÃƒÂ£o) --- */
-.verse-container {
-    max-width: 320px;
-    margin-bottom: 12px;
-}
-.verse-quote {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-size: 0.95rem;
-    color: #f7ede1;
-    line-height: 1.55;
-    text-shadow: 0 2px 6px rgba(0,0,0,0.75);
-}
-.verse-author {
-    font-family: 'Lato', sans-serif;
-    font-size: 0.78rem;
-    color: #e2c08d;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-top: 6px;
-    text-shadow: 0 1px 4px rgba(0,0,0,0.7);
-}
-
-.formal-parents {
-    font-family: 'Lato', sans-serif;
-    font-size: 0.72rem;
-    letter-spacing: 2px;
-    color: #e8ded2;
-    text-transform: uppercase;
-    line-height: 1.5;
-    text-shadow: 0 1px 4px rgba(0,0,0,0.7);
-    margin: 8px 0 4px 0;
-}
-
-.names-calligraphy {
-    font-family: 'Alex Brush', cursive;
-    font-size: 3.2rem;
-    color: #ffffff;
-    font-weight: 400;
-    line-height: 1.1;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.8);
-    margin: 6px 0;
-}
-.names-calligraphy span {
-    font-size: 2.2rem;
-    color: #e2c08d;
-}
-
-.formal-invite {
-    font-family: 'Lato', sans-serif;
-    font-size: 0.72rem;
-    letter-spacing: 2px;
-    color: #e8ded2;
-    text-transform: uppercase;
-    line-height: 1.5;
-    text-shadow: 0 1px 4px rgba(0,0,0,0.7);
-    max-width: 290px;
-    margin-bottom: 12px;
-}
-
-.formal-date-box {
-    margin-top: 4px;
-}
-.formal-date {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.65rem;
-    color: #e2c08d;
-    letter-spacing: 5px;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.8);
-    font-weight: 700;
-}
-.formal-time {
-    font-family: 'Lato', sans-serif;
-    font-size: 0.76rem;
-    letter-spacing: 2.5px;
-    color: #f7ede1;
-    text-transform: uppercase;
-    margin-top: 3px;
-    text-shadow: 0 1px 4px rgba(0,0,0,0.7);
-}
-
-/* Nomes e Dica Brancos na Capa */
-.header-overlay {
+.page-details {
+    
+    position: relative;
     width: 100%;
-    margin-bottom: 30px;
+    padding: 30px 20px 20px 20px; min-height: 100%; justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-sizing: border-box;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(226, 192, 141, 0.3);
 }
-.names-white {
-    font-family: 'Playfair Display', serif;
-    font-size: 3rem;
-    color: #fff;
-    font-weight: 600;
-    line-height: 1.1;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.6);
-}
-.names-white span {
-    font-size: 1.8rem;
+
+.date-large {
+    font-family: 'Lato', sans-serif;
+    font-size: 2rem;
     color: #e2c08d;
-    font-style: italic;
-    font-weight: 400;
+    letter-spacing: 2px;
+    margin: 15px 0 5px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
 }
-.date-white {
+.date-large .divider {
+    font-weight: 300;
+    opacity: 0.5;
+}
+.year-large {
     font-family: 'Lato', sans-serif;
     font-size: 1.2rem;
     color: #e2c08d;
-    letter-spacing: 4px;
-    margin-top: 8px;
-    text-shadow: 0 2px 6px rgba(0,0,0,0.6);
-    font-weight: 700;
-}
-.white-hint {
-    color: #fff !important;
-    text-shadow: 0 1px 5px rgba(0,0,0,0.6);
-    margin-top: 15px;
+    letter-spacing: 5px;
+    margin-bottom: 12px;
 }
 
-/* Minimal Countdown on Image */
+.location-details {
+    margin-bottom: 12px;
+}
+.location-details .venue {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: #fff;
+    margin: 0 0 5px 0;
+}
+.location-details .address {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.9rem;
+    color: #ccc;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.touch-hint {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.85rem;
+    color: #e2c08d;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
+
+.action-buttons-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    max-width: 300px;
+}
+.action-buttons-list .action-btn {
+    width: 100%;
+    padding: 14px 20px;
+    background: transparent;
+    border: 1px solid #e2c08d;
+    color: #e2c08d;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.action-buttons-list .action-btn:hover {
+    background: rgba(226, 192, 141, 0.1);
+}
+
+.footer-spacer {
+    height: 20px;
+}
+
+/* --- V1 Cover Styles Restored --- */
+.page-cover {
+    
+    position: relative;
+    width: 100%;
+    min-height: 100%; /* Force full viewport height */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px 25px 90px 25px;
+    box-sizing: border-box;
+    text-align: center;
+    z-index: 10;
+}
+.header-overlay {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+h1.names-white {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.2rem;
+    color: #fff;
+    margin: 0;
+    line-height: 1.1;
+    font-weight: 400;
+}
+h1.names-white span {
+    font-size: 1.8rem;
+    color: #e2c08d;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    margin: 0 10px;
+    vertical-align: middle;
+}
+.names-calligraphy {
+    font-family: 'Alex Brush', cursive;
+    font-size: 3.8rem;
+    color: #e2c08d;
+    margin: 5px 0;
+    font-weight: 400;
+    line-height: 0.9;
+}
+.names-calligraphy span {
+    font-size: 2rem;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: #fff;
+}
+.date-white {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.1rem;
+    color: #e2c08d;
+    letter-spacing: 4px;
+    margin-top: 15px;
+    text-transform: uppercase;
+}
+.scroll-hint.white-hint {
+    margin-top: 30px;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #fff;
+    animation: gentle-bounce 2s infinite ease-in-out;
+}
+@keyframes gentle-bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(5px); }
+}
 .countdown-minimal {
     display: flex;
-    gap: 15px;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    width: 100%;
-    margin-top: 20px;
+    gap: 8px;
 }
 .countdown-minimal .time-box {
     display: flex;
@@ -595,231 +616,205 @@ body {
 }
 .countdown-minimal .time-box span {
     font-family: 'Playfair Display', serif;
-    font-size: 2.2rem;
+    font-size: 1.8rem;
     color: #fff;
-    line-height: 1;
-    text-shadow: 0 2px 6px rgba(0,0,0,0.6);
 }
 .countdown-minimal .time-box p {
-    font-size: 0.75rem;
-    color: #e6d7c8;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.6rem;
     text-transform: uppercase;
     letter-spacing: 1px;
-    margin-top: 5px;
-    text-shadow: 0 1px 4px rgba(0,0,0,0.6);
+    color: #ccc;
+    margin: 2px 0 0 0;
 }
 .countdown-minimal .colon {
-    font-size: 1.8rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
     color: #e2c08d;
     margin-top: -15px;
-    text-shadow: 0 2px 6px rgba(0,0,0,0.6);
 }
-
-/* Scroll Hint Geral */
-.scroll-hint {
-    font-size: 0.8rem;
-    color: #ab8e60;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    animation: bounce 2s infinite;
-}
-.scroll-hint span {
-    display: block;
-    font-size: 1.2rem;
-    margin-top: 5px;
-}
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-    40% { transform: translateY(8px); }
-    60% { transform: translateY(4px); }
-}
-
-/* Tipografia Luminosa nos PainÃƒÂ©is de Vidro */
-.section-title {
+.formal-invite {
     font-family: 'Playfair Display', serif;
-    font-size: 1.55rem;
-    color: #e2c08d; 
-    font-style: italic;
-    font-weight: 400;
-    margin-bottom: 10px;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+    font-size: 1rem;
+    color: #fff;
+    margin: 0 0 10px 0;
 }
-.divider { margin: 10px 0 14px 0; }
-.venue {
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: #ffffff; 
-    margin-bottom: 4px;
-    text-shadow: 0 2px 6px rgba(0,0,0,0.7);
-}
-.address {
-    font-size: 0.92rem;
-    color: #f0e6d8; 
-    line-height: 1.4;
-    margin-bottom: 10px;
-    text-shadow: 0 1px 4px rgba(0,0,0,0.7);
-}
-
-/* --- Miniatura Estilizada do Mapa em Vidro Cristalino --- */
-.map-thumbnail-wrapper {
-    width: 100%;
-    max-width: 290px;
-    height: 120px;
-    border-radius: 14px;
-    overflow: hidden;
-    position: relative;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.35);
-    border: 1px solid rgba(255, 255, 255, 0.35);
-    margin: 4px 0 12px 0;
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.map-thumbnail-wrapper:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 28px rgba(226, 192, 141, 0.3);
-}
-
-.map-preview {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    background-color: #e9ece6;
-}
-
-.map-svg {
-    width: 100%;
-    height: 100%;
-    display: block;
-}
-
-.map-pin {
+/* --- VERSION SWITCH (V1 | V2) --- */
+.version-switch {
     position: absolute;
-    top: 42%;
-    left: 50%;
-    transform: translate(-50%, -100%);
-    filter: drop-shadow(0 3px 6px rgba(0,0,0,0.4));
-    animation: pinFloat 2.4s ease-in-out infinite;
-}
-
-.map-pin-pulse {
-    position: absolute;
-    top: 42%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 24px;
-    height: 14px;
-    background: rgba(226, 192, 141, 0.5);
-    border-radius: 50%;
-    animation: pinPulse 2s infinite;
-}
-
-@keyframes pinPulse {
-    0% { transform: translate(-50%, -50%) scale(0.6); opacity: 0.85; }
-    100% { transform: translate(-50%, -50%) scale(2); opacity: 0; }
-}
-
-@keyframes pinFloat {
-    0%, 100% { transform: translate(-50%, -100%); }
-    50% { transform: translate(-50%, -114%); }
-}
-
-.map-tag {
-    position: absolute;
-    bottom: 8px;
+    bottom: 30px;
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(255, 255, 255, 0.94);
-    backdrop-filter: blur(4px);
-    padding: 3px 12px;
-    border-radius: 12px;
-    font-size: 0.72rem;
-    font-weight: 700;
-    color: #4a423a;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-    white-space: nowrap;
-    border: 1px solid rgba(171, 142, 96, 0.35);
-    letter-spacing: 0.5px;
-}
-
-/* --- ÃƒÂcone de AlianÃƒÂ§as Nobres em Vidro Cristalino (SeÃƒÂ§ÃƒÂ£o 4) --- */
-.wedding-icon-wrapper {
-    margin-bottom: 14px;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    filter: drop-shadow(0 4px 12px rgba(226, 192, 141, 0.5));
+    background: rgba(0,0,0,0.4);
+    border: 1px solid rgba(226,192,141,0.5);
+    border-radius: 30px;
+    padding: 4px;
+    z-index: 50;
+    transition: opacity 0.5s ease;
+}
+.version-switch.hidden-switch {
+    opacity: 0;
+    pointer-events: none;
+}
+.v-option {
+    padding: 8px 16px;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.7);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    border-radius: 26px;
+    transition: all 0.3s ease;
+}
+.v-option.active {
+    background: #e2c08d;
+    color: #151515;
+    font-weight: bold;
 }
 
-.rings-svg {
+/* --- V-CONTENT DISPLAY LOGIC --- */
+.v-content {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0; left: 0;
+}
+.v-content.active {
     display: block;
 }
 
-.rsvp-text {
-    font-size: 0.92rem;
-    color: #f5ede2; 
-    line-height: 1.5;
-    margin-bottom: 20px;
-    max-width: 300px;
-    text-shadow: 0 1px 5px rgba(0,0,0,0.7);
+/* --- V1 DARK DETAILS FIX --- */
+.page-details.dark-details {
+    background: linear-gradient(to bottom, transparent, #121212 15%, #0a0a0a 100%);
+    border-top: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
 }
 
-/* BotÃƒÂµes Estilo Vidro & Ouro */
-.action-btn {
-    padding: 12px 25px;
-    border: none;
-    border-radius: 30px;
-    font-family: 'Lato', sans-serif;
-    font-size: 0.82rem;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.3s;
+/* --- V2 STYLES --- */
+.v2-bg {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: url('images/couple3.png');
+    background-size: cover;
+    background-position: center;
+    z-index: -2;
+}
+.v2-bg::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(255, 255, 255, 0.4);
+    z-index: -1;
+}
+
+.v2-container-inner {
+    
+    width: calc(100% - 30px);
+    margin: 15px auto;
+    height: calc(100dvh - 30px);
+    background: rgba(245, 245, 245, 0.90);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px 20px 25px 20px;
+    text-align: center;
+    box-sizing: border-box;
+}
+.v2-container-inner::before {
+    content: '';
+    position: absolute;
+    top: 10px; left: 10px; right: 10px; bottom: 10px;
+    border: 1px solid rgba(91, 98, 62, 0.15);
+    pointer-events: none;
+}
+
+.verse-box {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.85rem;
+    color: #5b623e;
+    letter-spacing: 0.5px;
+    line-height: 1.4;
+    max-width: 90%;
+    margin-bottom: 12px;
+}
+
+.names-v2 {
+    font-family: 'Alex Brush', cursive;
+    font-size: 4.8rem;
+    line-height: 0.8;
+    color: #5b623e;
+    margin: 5px 0;
+    font-weight: 400;
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    max-width: 270px;
-    margin-bottom: 10px;
+}
+.name-1 { align-self: flex-start; padding-left: 10%; }
+.name-2 { align-self: flex-end; padding-right: 10%; display: flex; align-items: center; margin-top: -15px; }
+.names-v2 .amp { font-family: 'Alex Brush', cursive; font-size: 2.5rem; font-weight: 300; margin-right: 15px; }
+
+.invite-txt { font-family: 'Playfair Display', serif; font-size: 0.95rem; color: #5b623e; margin: 10px 0; max-width: 250px; line-height: 1.4; letter-spacing: 1px; }
+
+.date-box-v2 { display: flex; flex-direction: column; align-items: center; margin: 5px 0; }
+.date-row-v2 { display: flex; align-items: center; gap: 15px; font-family: 'Playfair Display', serif; font-size: 2.4rem; color: #5b623e; line-height: 1; }
+.date-row-v2 span.divider-v2 { font-size: 2.5rem; font-weight: 300; opacity: 0.5; }
+.year-txt-v2 { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: #5b623e; letter-spacing: 5px; margin-top: 8px; }
+
+.location-txt-v2 { font-family: 'Playfair Display', serif; font-size: 1rem; color: #5b623e; line-height: 1.4; margin: 15px 0; }
+.btn-hint-v2 { font-family: 'Playfair Display', serif; font-size: 1rem; color: #5b623e; margin-bottom: 12px; letter-spacing: 1px; }
+
+.btn-list-v2 { display: flex; flex-direction: column; gap: 8px; width: 100%; max-width: 280px; }
+.btn-v2 { display: flex; align-items: center; justify-content: flex-start; gap: 15px; width: 100%; background: transparent; border: 1px solid #5b623e; color: #5b623e; padding: 10px 20px; border-radius: 30px; font-family: 'Playfair Display', serif; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; cursor: pointer; transition: all 0.3s; }
+.btn-v2:hover { background: rgba(91, 98, 62, 0.1); }
+.btn-v2 svg { width: 18px; height: 18px; stroke: #5b623e; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Fix missing golden border on scroll (draw over everything) */
+
+
+#v1-content::after {
+    content: '';
+    position: absolute;
+    top: 1.5px;
+    left: 1.5px;
+    right: 1.5px;
+    bottom: 1.5px;
+    border: 1px solid rgba(184, 144, 76, 0.5);
+    border-radius: 4px;
+    pointer-events: none;
+    z-index: 100;
+    transition: border-radius 0.6s ease;
 }
 
-.rsvp-btn, .map-btn {
-    background: linear-gradient(135deg, #c4a26e, #ab8e60);
-    color: #ffffff; 
-    box-shadow: 0 4px 15px rgba(171, 142, 96, 0.45);
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+.envelope.is-reading #v1-content::after {
+    border-radius: 17px;
 }
 
-.rsvp-btn:hover, .map-btn:hover {
-    background: linear-gradient(135deg, #d4b583, #bd9f6f);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 22px rgba(226, 192, 141, 0.6);
+/* Ensure completely opaque dark background for V1 second page */
+.page-details.dark-details {
+    background: #0a0a0a !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border-top: 1px solid rgba(226, 192, 141, 0.15) !important;
 }
 
-.gift-btn {
-    background: rgba(255, 255, 255, 0.12);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    color: #ffffff;
-    border: 1.5px solid #e2c08d;
-    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
-    box-shadow: 0 4px 14px rgba(0,0,0,0.25);
-}
 
-.gift-btn:hover {
-    background: rgba(255, 255, 255, 0.22);
-    border-color: #ffffff;
-    transform: translateY(-2px);
-}
-
-@media (max-height: 700px) {
-    h1.names-white { font-size: 2.2rem; }
-    .names-calligraphy { font-size: 2.6rem; }
-    .stack-section { padding: 45px 15px 30px 15px; }
-    .countdown-minimal .time-box span { font-size: 1.6rem; }
-    .map-thumbnail-wrapper { height: 100px; margin: 2px 0 8px 0; }
-    .wedding-icon-wrapper { margin-bottom: 8px; }
-    .verse-quote { font-size: 0.85rem; }
-    .rsvp-text { margin-bottom: 14px; font-size: 0.85rem; }
-    .action-btn { padding: 10px 18px; margin-bottom: 6px; }
-}
 

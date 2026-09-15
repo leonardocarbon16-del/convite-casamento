@@ -1,53 +1,108 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // Lógica da Animação Inicial (Intro Overlay)
-    const introOverlay = document.getElementById('intro-overlay');
+﻿document.addEventListener('DOMContentLoaded', () => {
+    // Show envelope immediately
     const inviteWrapper = document.getElementById('invite-wrapper');
-    
-    setTimeout(() => {
-        if(introOverlay) {
-            introOverlay.style.opacity = '0';
-            introOverlay.style.visibility = 'hidden';
-        }
-        if(inviteWrapper) {
-            inviteWrapper.classList.remove('hidden');
-        }
-    }, 3800);
+    if(inviteWrapper) {
+        inviteWrapper.classList.remove('hidden');
+    }
 
     const envelope = document.getElementById('envelope');
-    const letter = document.getElementById('letter');
     const openSeal = document.getElementById('open-seal');
     const closeSeal = document.getElementById('close-seal');
-    const scrollContainer = document.getElementById('scroll-container');
-    const dots = document.querySelectorAll('.v-dot');
+    const scrollContainers = document.querySelectorAll('.scroll-container');
+    const versionSwitch = document.getElementById('version-switch');
+    const vOptions = document.querySelectorAll('.v-option');
+    const vContents = document.querySelectorAll('.v-content');
     
     let isOpen = false;
-    let currentSectionIndex = 0;
-    const totalSections = 4; // Agora 4 seções completas
     let isTransitioning = false;
+    let currentV1Page = 0; // 0 = capa, 1 = detalhes
 
-    // --- Função Mestra de Navegação Entre Páginas ---
-    function goToSection(index) {
-        if (index < 0 || index >= totalSections) return;
-        currentSectionIndex = index;
-        
-        // Atualiza estado visual das bolinhas
-        dots.forEach((dot, i) => {
-            dot.classList.toggle('active', i === currentSectionIndex);
+    // --- Version Toggle Logic ---
+    vOptions.forEach(option => {
+        option.addEventListener('click', (e) => {
+            if(isOpen) return; // Cannot toggle while envelope is open
+            
+            // Update active button
+            vOptions.forEach(opt => opt.classList.remove('active'));
+            e.target.classList.add('active');
+
+            // Show correct content wrapper
+            const targetV = e.target.getAttribute('data-v');
+            vContents.forEach(content => {
+                if (content.id === targetV + '-content') {
+                    content.classList.add('active');
+                } else {
+                    content.classList.remove('active');
+                }
+            });
         });
+    });
 
-        if (!scrollContainer) return;
-        const targetScroll = currentSectionIndex * scrollContainer.clientHeight;
+    // --- JS Smart Scroll (Empurrãozinho) for V1 ---
+    const v1ScrollContainer = document.querySelector('#v1-content .scroll-container');
+    const v1Content = document.getElementById('v1-content');
+
+    function goToV1Page(pageIndex) {
+        if (!v1ScrollContainer) return;
+        if (pageIndex < 0) pageIndex = 0;
+        if (pageIndex > 1) pageIndex = 1;
         
+        currentV1Page = pageIndex;
         isTransitioning = true;
-        scrollContainer.scrollTo({
-            top: targetScroll,
-            behavior: 'smooth'
-        });
+        
+        const targetEl = currentV1Page === 0 ? document.querySelector('.page-cover') : document.querySelector('.page-details');
+        if (targetEl) {
+            v1ScrollContainer.scrollTo({
+                top: targetEl.offsetTop,
+                behavior: 'smooth'
+            });
+        }
 
-        // Trava novas ações até a animação de deslize concluir perfeitamente
         setTimeout(() => {
             isTransitioning = false;
-        }, 650);
+        }, 800);
+    }
+
+    if (v1Content) {
+        // Wheel support (Desktop)
+        v1Content.addEventListener('wheel', (e) => {
+            if (!envelope.classList.contains('is-reading')) return;
+            e.preventDefault();
+            if (isTransitioning) return;
+            if (Math.abs(e.deltaY) < 15) return;
+
+            if (e.deltaY > 0) {
+                goToV1Page(1); // down
+            } else {
+                goToV1Page(0); // up
+            }
+        }, { passive: false });
+
+        // Touch support (Mobile)
+        let touchStartY = 0;
+        v1Content.addEventListener('touchstart', (e) => {
+            if (!envelope.classList.contains('is-reading')) return;
+            touchStartY = e.touches[0].clientY;
+        }, { passive: true });
+
+        v1Content.addEventListener('touchmove', (e) => {
+            if (!envelope.classList.contains('is-reading')) return;
+            e.preventDefault();
+        }, { passive: false });
+
+        v1Content.addEventListener('touchend', (e) => {
+            if (!envelope.classList.contains('is-reading')) return;
+            if (isTransitioning) return;
+
+            const touchEndY = e.changedTouches[0].clientY;
+            const diffY = touchStartY - touchEndY;
+
+            if (diffY > 40) {
+                goToV1Page(1); // arrastou pra cima, quer ver abaixo
+            } else if (diffY < -40) {
+                goToV1Page(0); // arrastou pra baixo, quer ver acima
+            }
+        });
     }
 
     // --- Abrir e Fechar Carta ---
@@ -56,13 +111,9 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!isOpen) {
                 isOpen = true;
                 envelope.classList.add('is-open');
-                const btn = document.getElementById('version-toggle');
-                if(btn) { btn.style.opacity = '0'; btn.style.pointerEvents = 'none'; }
-                setTimeout(() => {
-                    envelope.classList.add('is-reading');
-                    currentSectionIndex = 0;
-                    goToSection(0);
-                }, 1000); 
+                if (versionSwitch) versionSwitch.classList.add('hidden-switch');
+                
+                setTimeout(() => { envelope.classList.add('is-reading'); currentV1Page = 0; if(v1ScrollContainer) v1ScrollContainer.scrollTo({ top: 0 }); resizePages(); }, 100); 
             }
         });
     }
@@ -73,86 +124,19 @@ document.addEventListener('DOMContentLoaded', () => {
             if (isOpen) {
                 isOpen = false;
                 envelope.classList.remove('is-reading');
-                const btn = document.getElementById('version-toggle');
-                if(btn) { btn.style.opacity = '1'; btn.style.pointerEvents = 'auto'; }
+                if (versionSwitch) versionSwitch.classList.remove('hidden-switch');
+
                 setTimeout(() => {
                     envelope.classList.remove('is-open');
-                    currentSectionIndex = 0;
-                    if (scrollContainer) {
-                        scrollContainer.scrollTo({ top: 0, behavior: 'auto' });
-                    }
-                    dots.forEach((dot, i) => dot.classList.toggle('active', i === 0));
+                    // Scroll all containers to top
+                    scrollContainers.forEach(container => {
+                        container.scrollTo({ top: 0, behavior: 'auto' });
+                    });
+                    currentV1Page = 0;
                 }, 800); 
             }
         });
     }
-
-    // --- Clique Direto nas Bolinhas ---
-    dots.forEach((dot, index) => {
-        dot.addEventListener('click', (e) => {
-            e.stopPropagation();
-            if (envelope.classList.contains('is-reading') && !isTransitioning) {
-                goToSection(index);
-            }
-        });
-    });
-
-    // --- Rolagem com a Roda do Mouse (Passada Completa por Vez) ---
-    if (letter) {
-        letter.addEventListener('wheel', (e) => {
-            if (!envelope.classList.contains('is-reading')) return;
-            e.preventDefault();
-            if (isTransitioning) return;
-
-            // Filtra toques acidentais mínimos
-            if (Math.abs(e.deltaY) < 15) return;
-
-            if (e.deltaY > 0) {
-                // Rolar para baixo -> vai para a próxima página
-                goToSection(currentSectionIndex + 1);
-            } else {
-                // Rolar para cima -> vai para a página anterior
-                goToSection(currentSectionIndex - 1);
-            }
-        }, { passive: false });
-
-        // --- Suporte a Gesto de Arraste (Touch / Celular) ---
-        let touchStartY = 0;
-
-        letter.addEventListener('touchstart', (e) => {
-            if (!envelope.classList.contains('is-reading')) return;
-            touchStartY = e.touches[0].clientY;
-        }, { passive: true });
-
-        letter.addEventListener('touchmove', (e) => {
-            if (!envelope.classList.contains('is-reading')) return;
-            e.preventDefault();
-        }, { passive: false });
-
-        letter.addEventListener('touchend', (e) => {
-            if (!envelope.classList.contains('is-reading')) return;
-            if (isTransitioning) return;
-
-            const touchEndY = e.changedTouches[0].clientY;
-            const diffY = touchStartY - touchEndY;
-
-            // Se arrastou para cima mais de 35px -> próxima página
-            if (diffY > 35) {
-                goToSection(currentSectionIndex + 1);
-            }
-            // Se arrastou para baixo mais de 35px -> página anterior
-            else if (diffY < -35) {
-                goToSection(currentSectionIndex - 1);
-            }
-        });
-    }
-
-    // Mantém alinhamento exato se a janela for redimensionada
-    window.addEventListener('resize', () => {
-        if (envelope && envelope.classList.contains('is-reading') && scrollContainer) {
-            scrollContainer.scrollTop = currentSectionIndex * scrollContainer.clientHeight;
-        }
-    });
 
     // --- Contagem Regressiva ---
     const targetDate = new Date('2026-11-14T16:00:00').getTime();
@@ -184,4 +168,21 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(updateCountdown, 1000);
     updateCountdown();
 
+
+    // --- Dynamic Height Fix for Exact Envelope Fit ---
+    function resizePages() {
+        const sc = document.querySelector('#v1-content .scroll-container');
+        if(sc) {
+            const h = sc.clientHeight + 'px';
+            const cover = document.querySelector('.page-cover');
+            const details = document.querySelector('.page-details');
+            if(cover) cover.style.height = h;
+            if(details) details.style.height = h;
+        }
+    }
+    window.addEventListener('resize', resizePages);
+    // Run it once the envelope is opened (or immediately)
+    setTimeout(resizePages, 100);
+    setTimeout(resizePages, 1500); // After envelope opens
 });
+
