@@ -13,6 +13,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    min-height: 100dvh;
     overflow: hidden;
 }
 
@@ -52,6 +53,7 @@ body {
     width: 100vw;
     max-width: 520px;
     height: 100vh;
+    height: 100dvh;
     perspective: 1200px;
     opacity: 1;
     transform: scale(1);
@@ -394,6 +396,7 @@ body {
     z-index: 2;
     background: transparent;
     border: none;
+    scroll-snap-type: y mandatory;
     border-radius: 18px;
     opacity: 0;
     transition: opacity 0.6s ease 0.8s;
@@ -421,6 +424,8 @@ body {
     justify-content: center;
     text-align: center;
     z-index: 10;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
 }
 
 /* SeÃƒÂ§ÃƒÂ£o 1 - Capa Totalmente Transparente (Foto 100% NÃƒÂ­tida) */
