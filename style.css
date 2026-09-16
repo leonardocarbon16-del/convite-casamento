@@ -1220,3 +1220,32 @@ html, body {
         transform: translateY(3px);
     }
 }
+
+/* ------------------------------------- */
+/* V2 Adjustments to fit Arrow on screen */
+/* ------------------------------------- */
+
+.v2-container-inner {
+    padding: 20px 15px !important; /* Menos espaço sobrando no topo e fundo */
+    gap: 8px !important; /* Aproxima todos os elementos flex */
+}
+
+.invite-txt {
+    margin: 5px 0 !important; /* Aproxima o convite das datas e ornamentos */
+}
+
+.date-box-v2 {
+    margin: 0 !important;
+}
+
+.location-wrapper {
+    margin-top: 0 !important; /* Remove margens extras, o gap do flex já dá espaço */
+}
+
+.scroll-down-arrow {
+    margin-top: 5px !important; /* Cola a setinha bem embaixo do endereço */
+}
+
+.verse-box-v2 {
+    margin-bottom: 5px !important; /* Menos margem entre versículo e nomes */
+}
