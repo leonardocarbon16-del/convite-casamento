@@ -1139,3 +1139,26 @@ html, body {
     height: 14px;
     stroke: #5b623e;
 }
+
+/* ------------------------------------- */
+/* V2 Further Adjustments (Spacing)     */
+/* ------------------------------------- */
+
+.names-v2 {
+    line-height: 0.9 !important;
+}
+.name-2 {
+    margin-top: -5px !important; /* Aumenta a distância vertical do 'Mauro' */
+}
+
+.verse-box-v2 {
+    margin-bottom: 10px !important;
+}
+
+.location-wrapper {
+    margin-top: 5px !important; /* Sobe o bloco inteiro de localização */
+}
+
+.hint-with-lines {
+    margin-top: 15px !important; /* Puxa o 'Mais Informações' mais pra cima */
+}
