@@ -729,14 +729,14 @@ h1.names-white span {
     content: '';
     position: absolute;
     top: 10px; left: 10px; right: 10px; bottom: 10px;
-    border: 1px solid rgba(91, 98, 62, 0.15);
+    border: 1px solid rgba(74, 93, 35, 0.15);
     pointer-events: none;
 }
 
 .verse-box {
     font-family: 'Playfair Display', serif;
     font-size: 0.85rem;
-    color: #5b623e;
+    color: #4a5d23;
     letter-spacing: 0.5px;
     line-height: 1.4;
     max-width: 90%;
@@ -747,7 +747,7 @@ h1.names-white span {
     font-family: 'Alex Brush', cursive;
     font-size: 4.8rem;
     line-height: 0.8;
-    color: #5b623e;
+    color: #4a5d23;
     margin: 5px 0;
     font-weight: 400;
     display: flex;
@@ -758,20 +758,20 @@ h1.names-white span {
 .name-2 { align-self: flex-end; padding-right: 10%; display: flex; align-items: center; margin-top: -15px; }
 .names-v2 .amp { font-family: 'Alex Brush', cursive; font-size: 2.5rem; font-weight: 300; margin-right: 15px; }
 
-.invite-txt { font-family: 'Playfair Display', serif; font-size: 0.95rem; color: #5b623e; margin: 10px 0; max-width: 250px; line-height: 1.4; letter-spacing: 1px; }
+.invite-txt { font-family: 'Playfair Display', serif; font-size: 0.95rem; color: #4a5d23; margin: 10px 0; max-width: 250px; line-height: 1.4; letter-spacing: 1px; }
 
 .date-box-v2 { display: flex; flex-direction: column; align-items: center; margin: 5px 0; }
-.date-row-v2 { display: flex; align-items: center; gap: 15px; font-family: 'Playfair Display', serif; font-size: 2.4rem; color: #5b623e; line-height: 1; }
+.date-row-v2 { display: flex; align-items: center; gap: 15px; font-family: 'Playfair Display', serif; font-size: 2.4rem; color: #4a5d23; line-height: 1; }
 .date-row-v2 span.divider-v2 { font-size: 2.5rem; font-weight: 300; opacity: 0.5; }
-.year-txt-v2 { font-family: 'Cinzel', serif; font-size: 1.2rem; color: #5b623e; letter-spacing: 5px; margin-top: 8px; }
+.year-txt-v2 { font-family: 'Cinzel', serif; font-size: 1.2rem; color: #4a5d23; letter-spacing: 5px; margin-top: 8px; }
 
-.location-txt-v2 { font-family: 'Playfair Display', serif; font-size: 1rem; color: #5b623e; line-height: 1.4; margin: 15px 0; }
-.btn-hint-v2 { font-family: 'Playfair Display', serif; font-size: 1rem; color: #5b623e; margin-bottom: 12px; letter-spacing: 1px; }
+.location-txt-v2 { font-family: 'Playfair Display', serif; font-size: 1rem; color: #4a5d23; line-height: 1.4; margin: 15px 0; }
+.btn-hint-v2 { font-family: 'Playfair Display', serif; font-size: 1rem; color: #4a5d23; margin-bottom: 12px; letter-spacing: 1px; }
 
 .btn-list-v2 { display: flex; flex-direction: column; gap: 8px; width: 100%; max-width: 280px; }
-.btn-v2 { display: flex; align-items: center; justify-content: flex-start; gap: 15px; width: 100%; background: transparent; border: 1px solid #5b623e; color: #5b623e; padding: 10px 20px; border-radius: 30px; font-family: 'Playfair Display', serif; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; cursor: pointer; transition: all 0.3s; }
-.btn-v2:hover { background: rgba(91, 98, 62, 0.1); }
-.btn-v2 svg { width: 18px; height: 18px; stroke: #5b623e; }
+.btn-v2 { display: flex; align-items: center; justify-content: flex-start; gap: 15px; width: 100%; background: transparent; border: 1px solid #4a5d23; color: #4a5d23; padding: 10px 20px; border-radius: 30px; font-family: 'Playfair Display', serif; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; cursor: pointer; transition: all 0.3s; }
+.btn-v2:hover { background: rgba(74, 93, 35, 0.1); }
+.btn-v2 svg { width: 18px; height: 18px; stroke: #4a5d23; }
 
 
 
@@ -974,7 +974,7 @@ html, body {
     background: rgba(255, 255, 255, 0.82) !important; /* Lighter overlay to soften background */
 }
 .v2-container-inner {
-    border: 1px solid rgba(91, 98, 62, 0.3) !important;
+    border: 1px solid rgba(74, 93, 35, 0.3) !important;
     padding: 30px 20px !important;
     height: max-content !important;
     min-height: calc(100% - 16px) !important;
@@ -997,7 +997,7 @@ html, body {
 .ornament .line {
     flex-grow: 1;
     height: 1px;
-    background: #5b623e;
+    background: #4a5d23;
     opacity: 0.3;
 }
 .ornament svg {
@@ -1010,7 +1010,7 @@ html, body {
 .verse-box-v2 {
     text-align: center;
     margin-bottom: 20px !important;
-    color: #5b623e;
+    color: #4a5d23;
 }
 .verse-box-v2 .verse-text {
     font-family: 'Playfair Display', serif;
@@ -1038,7 +1038,7 @@ html, body {
 .invite-txt {
     font-family: 'Playfair Display', serif;
     font-size: 0.9rem;
-    color: #5b623e;
+    color: #4a5d23;
     margin: 10px 0 15px 0;
     line-height: 1.4;
 }
@@ -1072,7 +1072,7 @@ html, body {
 .location-txt-v2 {
     font-family: 'Playfair Display', serif;
     font-size: 0.85rem;
-    color: #5b623e;
+    color: #4a5d23;
     line-height: 1.4;
     text-align: center;
 }
@@ -1089,13 +1089,13 @@ html, body {
 .hint-with-lines .line {
     flex-grow: 1;
     height: 1px;
-    background: #5b623e;
+    background: #4a5d23;
     opacity: 0.3;
 }
 .hint-with-lines .text {
     font-family: 'Cinzel', serif;
     font-size: 0.7rem;
-    color: #5b623e;
+    color: #4a5d23;
     letter-spacing: 2px;
 }
 
@@ -1113,8 +1113,8 @@ html, body {
     justify-content: space-between;
     width: 100%;
     background: transparent;
-    border: 1px solid rgba(91, 98, 62, 0.4) !important;
-    color: #5b623e;
+    border: 1px solid rgba(74, 93, 35, 0.4) !important;
+    color: #4a5d23;
     padding: 12px 20px !important;
     border-radius: 30px;
     font-family: 'Cinzel', serif !important;
@@ -1132,12 +1132,12 @@ html, body {
 .btn-v2-left svg {
     width: 14px;
     height: 14px;
-    stroke: #5b623e;
+    stroke: #4a5d23;
 }
 .btn-v2 .arrow-icon {
     width: 14px;
     height: 14px;
-    stroke: #5b623e;
+    stroke: #4a5d23;
 }
 
 /* ------------------------------------- */
@@ -1206,7 +1206,7 @@ html, body {
     width: 22px;
     height: 22px;
     /* User asked for white, but white on off-white is invisible. I will use a very elegant soft green */
-    stroke: #5b623e; 
+    stroke: #4a5d23; 
 }
 
 @keyframes bounceDown {
@@ -1298,7 +1298,7 @@ html, body {
 }
 .modal-box {
     background: rgba(245, 246, 241, 0.98);
-    border: 1px solid rgba(91, 98, 62, 0.3);
+    border: 1px solid rgba(74, 93, 35, 0.3);
     border-radius: 12px;
     padding: 35px 25px 25px 25px;
     width: 85%;
@@ -1317,21 +1317,21 @@ html, body {
     top: 10px; right: 15px;
     background: none; border: none;
     font-size: 1.8rem;
-    color: #5b623e;
+    color: #4a5d23;
     cursor: pointer;
     opacity: 0.6;
 }
 .modal-title {
     font-family: 'Playfair Display', serif;
     font-size: 1.4rem;
-    color: #5b623e;
+    color: #4a5d23;
     margin-top: 0;
     margin-bottom: 10px;
 }
 .modal-text {
     font-family: 'Playfair Display', serif;
     font-size: 0.95rem;
-    color: #5b623e;
+    color: #4a5d23;
     line-height: 1.4;
     margin-bottom: 20px;
 }
@@ -1339,27 +1339,27 @@ html, body {
     width: 100%;
     background: transparent;
     border: none;
-    border-bottom: 1px solid rgba(91, 98, 62, 0.5);
+    border-bottom: 1px solid rgba(74, 93, 35, 0.5);
     padding: 8px 5px;
     font-family: 'Cinzel', serif;
     font-size: 0.85rem;
-    color: #5b623e;
+    color: #4a5d23;
     text-align: center;
     outline: none;
     transition: border-color 0.3s ease;
 }
 .modal-input:focus {
-    border-bottom: 1px solid #5b623e;
+    border-bottom: 1px solid #4a5d23;
 }
 .modal-input::placeholder {
-    color: rgba(91, 98, 62, 0.4);
+    color: rgba(74, 93, 35, 0.4);
 }
 
 .spinner {
     width: 24px;
     height: 24px;
-    border: 2px solid rgba(91, 98, 62, 0.2);
-    border-top: 2px solid #5b623e;
+    border: 2px solid rgba(74, 93, 35, 0.2);
+    border-top: 2px solid #4a5d23;
     border-radius: 50%;
     margin: 0 auto;
     animation: spin 1s linear infinite;
@@ -1368,3 +1368,4 @@ html, body {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
+
