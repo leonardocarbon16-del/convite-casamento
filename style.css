@@ -1369,3 +1369,14 @@ html, body {
     100% { transform: rotate(360deg); }
 }
 
+
+/* Fix envelope collapsing on deploy */
+body {
+    align-items: stretch !important;
+}
+.invite-wrapper {
+    min-height: 100vh !important;
+    height: 100% !important;
+    display: flex;
+    flex-direction: column;
+}
