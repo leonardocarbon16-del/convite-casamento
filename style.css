@@ -1369,3 +1369,70 @@ html, body {
     100% { transform: rotate(360deg); }
 }
 
+
+/* ------------------------------------- */
+/* Real Image Envelope Override          */
+/* ------------------------------------- */
+
+.envelope {
+    width: 100% !important;
+    height: 100% !important;
+    background: url('images/envelope-green.png') center/cover no-repeat !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    perspective: none !important;
+    /* No scale transform needed */
+    transform: none !important;
+}
+
+/* Hide CSS envelope parts */
+.envelope-back, .envelope-front, .envelope-flap {
+    display: none !important;
+}
+
+/* Position seal precisely in the center of the image */
+.seal-container {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    bottom: auto !important;
+    z-index: 20 !important;
+}
+.seal-image {
+    width: 105px !important; 
+    height: 105px !important;
+    /* Adicionando um leve filtro para mesclar a luz do brasão customizado com o fundo escuro da imagem */
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.4));
+}
+
+/* Let the letter fade in and slide up */
+.letter {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease !important;
+    pointer-events: none;
+}
+.envelope.is-reading .letter {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+/* Fade out the seal container and background slowly when reading */
+.envelope.is-reading {
+    /* If we fade out the background image, the screen will be black. 
+       Let's keep the background as a nice wallpaper behind the letter! */
+}
+.envelope.is-reading .seal-container {
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale(0.8) !important;
+    transition: all 0.5s ease;
+}
+
+/* Hide the old background of the invite wrapper since the envelope covers it now */
+.invite-wrapper {
+    background: none !important;
+}
+
