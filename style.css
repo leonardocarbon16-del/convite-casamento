@@ -1274,3 +1274,97 @@ html, body {
     border: none !important;
 }
 
+
+/* ------------------------------------- */
+/* RSVP Modal Styles                     */
+/* ------------------------------------- */
+
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+.modal-overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+.modal-box {
+    background: rgba(245, 246, 241, 0.98);
+    border: 1px solid rgba(91, 98, 62, 0.3);
+    border-radius: 12px;
+    padding: 35px 25px 25px 25px;
+    width: 85%;
+    max-width: 340px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    text-align: center;
+    transform: translateY(0);
+    transition: transform 0.3s ease;
+}
+.modal-overlay.hidden .modal-box {
+    transform: translateY(20px);
+}
+.modal-close {
+    position: absolute;
+    top: 10px; right: 15px;
+    background: none; border: none;
+    font-size: 1.8rem;
+    color: #5b623e;
+    cursor: pointer;
+    opacity: 0.6;
+}
+.modal-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: #5b623e;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+.modal-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem;
+    color: #5b623e;
+    line-height: 1.4;
+    margin-bottom: 20px;
+}
+.modal-input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(91, 98, 62, 0.5);
+    padding: 8px 5px;
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem;
+    color: #5b623e;
+    text-align: center;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+.modal-input:focus {
+    border-bottom: 1px solid #5b623e;
+}
+.modal-input::placeholder {
+    color: rgba(91, 98, 62, 0.4);
+}
+
+.spinner {
+    width: 24px;
+    height: 24px;
+    border: 2px solid rgba(91, 98, 62, 0.2);
+    border-top: 2px solid #5b623e;
+    border-radius: 50%;
+    margin: 0 auto;
+    animation: spin 1s linear infinite;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

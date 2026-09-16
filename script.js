@@ -184,6 +184,58 @@
     // Run it once the envelope is opened (or immediately)
     setTimeout(resizePages, 100);
     setTimeout(resizePages, 1500); // After envelope opens
+    // --- RSVP Modal Logic ---
+    const rsvpOverlay = document.getElementById('rsvp-modal-overlay');
+    const modalClose = document.getElementById('modal-close');
+    const btnSubmitRsvp = document.getElementById('btn-submit-rsvp');
+    const rsvpNameInput = document.getElementById('rsvp-name');
+    const step1 = document.getElementById('modal-step-1');
+    const step2 = document.getElementById('modal-step-2');
+
+    if (modalClose && rsvpOverlay) {
+        modalClose.addEventListener('click', () => {
+            rsvpOverlay.classList.add('hidden');
+            // Reset to step 1
+            setTimeout(() => {
+                step1.classList.remove('hidden');
+                step2.classList.add('hidden');
+                rsvpNameInput.value = '';
+            }, 300);
+        });
+    }
+
+    if (btnSubmitRsvp) {
+        btnSubmitRsvp.addEventListener('click', () => {
+            const name = rsvpNameInput.value.trim();
+            if (!name) {
+                alert('Por favor, informe seu nome.');
+                return;
+            }
+
+            // Show step 2
+            step1.classList.add('hidden');
+            step2.classList.remove('hidden');
+
+            // Generate WhatsApp message
+            const phoneNumber = '5551994378354';
+            const message = Ol&aacute;! Aqui &eacute;  + name + , passando para confirmar minha presen&ccedil;a.;
+            
+            // Clean message (decode entities for URL)
+            const cleanMessage = Olá! Aqui é  + name + , passando para confirmar minha presença.;
+            const waUrl = https://wa.me/ + phoneNumber + ?text= + encodeURIComponent(cleanMessage);
+
+            // Redirect after 2 seconds
+            setTimeout(() => {
+                window.location.href = waUrl;
+                
+                // Hide modal eventually
+                setTimeout(() => {
+                    rsvpOverlay.classList.add('hidden');
+                    step1.classList.remove('hidden');
+                    step2.classList.add('hidden');
+                    rsvpNameInput.value = '';
+                }, 1000);
+            }, 2500);
+        });
+    }
 });
-
-

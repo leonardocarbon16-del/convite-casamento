@@ -11,7 +11,7 @@
     <meta property="og:image" content="https://raw.githubusercontent.com/leonardocarbon16-del/convite-casamento/main/images/couple3.png">
     <meta property="og:url" content="https://convite-casamento-leochrs.vercel.app">
     <meta property="og:site_name" content="Mauro & Brenda">
-    <link rel="stylesheet" href="style.css?v=71">
+    <link rel="stylesheet" href="style.css?v=72">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&family=Alex+Brush&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -88,7 +88,7 @@
                                         <svg viewBox="0 0 24 24" fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                                         LOCAL DO EVENTO
                                     </button>
-                                    <button class="action-btn rsvp-btn" onclick="alert('Abriria confirmacao')">
+                                    <button class="action-btn rsvp-btn" onclick="document.getElementById('rsvp-modal-overlay').classList.remove('hidden');">
                                         <svg viewBox="0 0 24 24" fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
                                         CONFIRMAR PRESEN&Ccedil;A
                                     </button>
@@ -174,7 +174,7 @@
                                     </div>
                                     <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
                                 </button>
-                                <button class="btn-v2" onclick="alert('Abriria confirmacao')">
+                                <button class="btn-v2" onclick="document.getElementById('rsvp-modal-overlay').classList.remove('hidden');">
                                     <div class="btn-v2-left">
                                         <svg viewBox="0 0 24 24" fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
                                         CONFIRMAR PRESEN&Ccedil;A
@@ -212,9 +212,34 @@
         </div>
     </div>
 
-    <script src="script.js?v=71"></script>
-</body>
+    <script src="script.js?v=72"></script>
+    <!-- RSVP Modal -->
+    <div id="rsvp-modal-overlay" class="modal-overlay hidden">
+        <div class="modal-box">
+            <button class="modal-close" id="modal-close">&times;</button>
+            
+            <!-- Step 1: Form -->
+            <div id="modal-step-1">
+                <h3 class="modal-title">Confirmar Presen&ccedil;a</h3>
+                <p class="modal-text">Ficamos muito felizes com a sua presen&ccedil;a! Por favor, informe seu nome completo abaixo:</p>
+                <input type="text" id="rsvp-name" class="modal-input" placeholder="Seu nome..." autocomplete="off">
+                <button class="btn-v2" id="btn-submit-rsvp" style="justify-content: center; margin-top: 20px;">
+                    AVAN&Ccedil;AR
+                </button>
+            </div>
+
+            <!-- Step 2: Success & Redirect -->
+            <div id="modal-step-2" class="hidden">
+                <h3 class="modal-title">Quase l&aacute;!</h3>
+                <p class="modal-text">Sua presen&ccedil;a est&aacute; quase confirmada.<br><br>Voc&ecirc; ser&aacute; redirecionado para o WhatsApp para enviar a confirma&ccedil;&atilde;o diretamente para a noiva!</p>
+                <div class="spinner"></div>
+            </div>
+        </div>
+    </div>
+  </body>
 </html>
+
+
 
 
 
