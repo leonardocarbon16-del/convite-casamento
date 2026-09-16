@@ -1269,3 +1269,7 @@ html, body {
     right: 0 !important;
     bottom: 0 !important;
 }
+
+.card-bg-photo {
+    border: none !important;
+}
