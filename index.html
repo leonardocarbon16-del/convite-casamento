@@ -11,7 +11,7 @@
     <meta property="og:image" content="https://raw.githubusercontent.com/leonardocarbon16-del/convite-casamento/main/images/couple3.png">
     <meta property="og:url" content="https://convite-casamento-leochrs.vercel.app">
     <meta property="og:site_name" content="Mauro & Brenda">
-    <link rel="stylesheet" href="style.css?v=70">
+    <link rel="stylesheet" href="style.css?v=71">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&family=Alex+Brush&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -19,11 +19,6 @@
     <div class="invite-wrapper hidden" id="invite-wrapper">
         
         <!-- Toggle Switch at bottom of envelope -->
-        <div class="version-switch" id="version-switch">
-            <div class="v-option active" data-v="v1">Vers&atilde;o 1</div>
-            <div class="v-option" data-v="v2">Vers&atilde;o 2</div>
-        </div>
-
         <div class="envelope" id="envelope">
             <div class="envelope-back"></div>
             
@@ -32,7 +27,7 @@
                 <img src="images/seal.png" class="close-seal" id="close-seal" alt="Fechar" title="Fechar Convite">
                 
                 <!-- VERSION 1 WRAPPER -->
-                <div class="v-content active" id="v1-content">
+                <div class="v-content" id="v1-content" style="display:none;">
                     <div class="card-bg-photo"></div>
                     <div class="scroll-container">
                         <div class="long-page-content">
@@ -77,7 +72,7 @@
                                 <p class="formal-invite">Convidam para a celebra&ccedil;&atilde;o de seu casamento</p>
 
                                 <div class="date-large">
-                                    <span>14</span> <span class="divider">|</span> <span>NOV</span> <span class="divider">|</span> <span>16h</span>
+                                    <span>14</span> <span class="divider">|</span> <span>NOV</span> <span class="divider">|</span> <span>16:30</span>
                                 </div>
                                 <div class="year-large">2026</div>
 
@@ -89,7 +84,7 @@
                                 <p class="touch-hint">TOQUE NOS BOT&Otilde;ES</p>
 
                                 <div class="action-buttons-list">
-                                    <button class="action-btn" onclick="window.open('https://maps.google.com/?q=Fazenda+das+Flores+Vale+do+Sol+SP', '_blank')">
+                                    <button class="action-btn" onclick="window.open('https://maps.google.com/?q=Paraíso+Espaço+de+Eventos+Viamão+RS', '_blank')">
                                         <svg viewBox="0 0 24 24" fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                                         LOCAL DO EVENTO
                                     </button>
@@ -110,7 +105,7 @@
                 </div> <!-- End V1 -->
 
                 <!-- VERSION 2 WRAPPER -->
-                <div class="v-content" id="v2-content">
+                <div class="v-content active" id="v2-content">
                     <div class="v2-bg"></div>
                     <div class="scroll-container">
                         <div class="v2-container-inner">
@@ -123,7 +118,7 @@
                             </div>
 
                             <div class="verse-box-v2">
-                                <p class="verse-text">&ldquo;Grandes coisas fez o Senhor por n&oacute;s, e por isso estamos alegres.&rdquo; <span class="verse-ref">- SALMOS 126:3</span></p>
+                                <p class="verse-text">&ldquo;Assim, eles j&aacute; n&atilde;o s&atilde;o dois, mas sim uma s&oacute; carne. Portanto, o que Deus uniu, ningu&eacute;m separa.&rdquo; <span class="verse-ref">- MATEUS 19:6</span></p>
                             </div>
 
                             <!-- Names -->
@@ -146,7 +141,7 @@
                             <!-- Date (Keeping Original Structure, styling CSS) -->
                             <div class="date-box-v2">
                                 <div class="date-row-v2">
-                                    <span>14</span> <span class="divider-v2">|</span> <span>NOV</span> <span class="divider-v2">|</span> <span>16h</span>
+                                    <span>14</span> <span class="divider-v2">|</span> <span>NOV</span> <span class="divider-v2">|</span> <span>16:30</span>
                                 </div>
                                 <div class="year-txt-v2">2026</div>
                             </div>
@@ -154,11 +149,7 @@
                             <!-- Location -->
                             <div class="location-wrapper">
                                 <svg class="pin-icon" viewBox="0 0 24 24" fill="none" stroke="#5b623e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                                <div class="location-txt-v2">
-                                    Fazenda das Flores,<br>
-                                    Rod. Principal, km 42<br>
-                                    Vale do Sol - SP
-                                </div>
+                                <div class="location-txt-v2">Para&iacute;so Espa&ccedil;o de Eventos,<br>Estrada Caminho do Meio, 5250<br>Vila Augusta &mdash; Viam&atilde;o, RS</div>
                             </div>
                             
                             <div class="scroll-down-arrow" onclick="document.querySelector('.v2-bg').scrollBy({top: 150, behavior: 'smooth'})">
@@ -176,7 +167,7 @@
 
                             <!-- Buttons -->
                             <div class="btn-list-v2">
-                                <button class="btn-v2" onclick="window.open('https://maps.google.com/?q=Fazenda+das+Flores+Vale+do+Sol+SP', '_blank')">
+                                <button class="btn-v2" onclick="window.open('https://maps.google.com/?q=Paraíso+Espaço+de+Eventos+Viamão+RS', '_blank')">
                                     <div class="btn-v2-left">
                                         <svg viewBox="0 0 24 24" fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                                         LOCAL DO EVENTO
@@ -190,7 +181,7 @@
                                     </div>
                                     <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
                                 </button>
-                                <button class="btn-v2" onclick="alert('Abriria lista')">
+                                <button class="btn-v2" onclick="window.open('https://noivos.casar.com/brendaemauro#/presentes', '_blank')" >
                                     <div class="btn-v2-left">
                                         <svg viewBox="0 0 24 24" fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 12 20 22 4 22 4 12"></polyline><rect x="2" y="7" width="20" height="5"></rect><line x1="12" y1="22" x2="12" y2="7"></line><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path></svg>
                                         LISTA DE PRESENTES
@@ -221,9 +212,11 @@
         </div>
     </div>
 
-    <script src="script.js?v=70"></script>
+    <script src="script.js?v=71"></script>
 </body>
 </html>
+
+
 
 
 

@@ -696,7 +696,7 @@ h1.names-white span {
 .v2-bg {
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    background-image: url('images/couple3.png');
+    background-image: url('images/couple-final.png');
     background-size: cover;
     background-position: center;
     z-index: -2;
@@ -1273,3 +1273,4 @@ html, body {
 .card-bg-photo {
     border: none !important;
 }
+
