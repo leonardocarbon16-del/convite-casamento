@@ -1188,3 +1188,35 @@ html, body {
     letter-spacing: 1.5px !important;
     margin-left: 3px !important;
 }
+
+/* ------------------------------------- */
+/* Pulsing Arrow V2                      */
+/* ------------------------------------- */
+
+.scroll-down-arrow {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px !important;
+    margin-bottom: -5px !important;
+    cursor: pointer;
+    animation: bounceDown 2s infinite;
+    opacity: 0.8;
+}
+.scroll-down-arrow svg {
+    width: 22px;
+    height: 22px;
+    /* User asked for white, but white on off-white is invisible. I will use a very elegant soft green */
+    stroke: #5b623e; 
+}
+
+@keyframes bounceDown {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(6px);
+    }
+    60% {
+        transform: translateY(3px);
+    }
+}
