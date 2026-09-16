@@ -218,11 +218,9 @@
 
             // Generate WhatsApp message
             const phoneNumber = '5551994378354';
-            const message = Ol&aacute;! Aqui &eacute;  + name + , passando para confirmar minha presen&ccedil;a.;
-            
-            // Clean message (decode entities for URL)
-            const cleanMessage = Olá! Aqui é  + name + , passando para confirmar minha presença.;
-            const waUrl = https://wa.me/ + phoneNumber + ?text= + encodeURIComponent(cleanMessage);
+                        const message = "Ol&aacute;! Aqui &eacute; " + name + ", passando para confirmar minha presen&ccedil;a.";
+            const cleanMessage = "Olá! Aqui é " + name + ", passando para confirmar minha presença.";
+            const waUrl = "https://wa.me/" + phoneNumber + "?text=" + encodeURIComponent(cleanMessage);
 
             // Redirect after 2 seconds
             setTimeout(() => {
@@ -239,3 +237,4 @@
         });
     }
 });
+
