@@ -1162,3 +1162,29 @@ html, body {
 .hint-with-lines {
     margin-top: 15px !important; /* Puxa o 'Mais Informações' mais pra cima */
 }
+
+/* ------------------------------------- */
+/* V2 Further Adjustments (Overlay & Verse) */
+/* ------------------------------------- */
+
+/* Deixa o fundo (fora do container) com as cores originais da imagem */
+.v2-bg::after {
+    display: none !important;
+}
+
+/* Traz o fundo esbranquiçado e opaco SOMENTE para a parte interna, dando destaque ao texto */
+.v2-container-inner {
+    background: rgba(245, 246, 241, 0.88) !important; /* Um off-white levemente esverdeado/quente */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Sutil sombra para dar profundidade */
+}
+
+/* Ajusta o versículo na mesma linha */
+.verse-box-v2 .verse-text {
+    margin: 0 !important;
+}
+.verse-box-v2 .verse-ref {
+    display: inline !important;
+    font-size: 0.65rem !important;
+    letter-spacing: 1.5px !important;
+    margin-left: 3px !important;
+}
