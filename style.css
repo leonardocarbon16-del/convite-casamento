@@ -1377,7 +1377,7 @@ html, body {
 .envelope {
     width: 100% !important;
     height: 100% !important;
-    background: url('images/envelope-green.png') center/cover no-repeat !important;
+    background: url('images/envelope-green.png') center/100% 100% no-repeat !important;
     border-radius: 0 !important;
     box-shadow: none !important;
     perspective: none !important;
@@ -1435,4 +1435,5 @@ html, body {
 .invite-wrapper {
     background: none !important;
 }
+
 
